@@ -25,9 +25,9 @@ class MyAdapter(var context:Context, var text1: Array<String>, var img: IntArray
 
         holder.itemView.playout.setOnClickListener{
             val intent = Intent(context, Details::class.java)
-
-
-
+//
+//
+//
             intent.putExtra("name", text1[position])
             intent.putExtra("recipe", text2[position])
             intent.putExtra("image", img[position])
