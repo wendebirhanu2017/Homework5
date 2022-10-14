@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_problem1.*
 import java.time.LocalDate
 
@@ -94,13 +95,24 @@ class Problem1 : AppCompatActivity() {
             }
 
             submitBtn.setOnClickListener {
-                Toast.makeText(
-                    applicationContext,
-                    "Congratulations! You submitted on ${LocalDate.now()}, You achieved $percentage",
-                    Toast.LENGTH_LONG
-                ).show()
-                finish();
-                startActivity(getIntent());
+                var builder = AlertDialog.Builder(this)
+                builder.setTitle("Result")
+                builder.setMessage("Congratulations! You submitted on ${LocalDate.now()}, You achieved $percentage")
+                builder.setNegativeButton("Cancel"){
+                    dialogInterface, which->
+                    dialogInterface.dismiss()
+                }
+
+                val dialog: AlertDialog = builder.create()
+                dialog.show()
+
+//                Toast.makeText(
+//                    applicationContext,
+//                    "Congratulations! You submitted on ${LocalDate.now()}, You achieved $percentage",
+//                    Toast.LENGTH_LONG
+//                ).show()
+//                finish();
+//                startActivity(getIntent());
             }
 
             resetBtn.setOnClickListener {
