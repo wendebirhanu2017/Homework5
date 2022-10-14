@@ -14,5 +14,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this,Problem1::class.java)
             startActivity(intent)
         }
+        problem2Btn.setOnClickListener {
+            val intent = Intent(this,Problem2::class.java)
+            startActivity(intent)
+        }
     }
 }
